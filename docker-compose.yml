@@ -20,7 +20,13 @@ services:
       - "80:80"
     volumes:
       - ./:/var/www
+<<<<<<< HEAD
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+=======
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/snippets:/etc/nginx/snippets
+      
+>>>>>>> temp-branch
     networks:
       - laravel
 

@@ -14,3 +14,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Copiar configurações PHP
 COPY ./docker/php/local.ini /usr/local/etc/php/conf.d/
+<<<<<<< HEAD
+=======
+COPY fastcgi-php.conf /etc/nginx/snippets/fastcgi-php.conf
+>>>>>>> temp-branch
