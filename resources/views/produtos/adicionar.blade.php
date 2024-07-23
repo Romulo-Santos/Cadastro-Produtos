@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Produto</title>
-    <!-- Adicione seus estilos aqui -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Cadastrar Novo Produto</h1>
-        <form action="{{ route('produtos.store') }}" method="POST">
+        <form action="{{ route('produtos.guardar') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nome">Nome do Produto</label>
@@ -42,7 +41,6 @@
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
-    <!-- Adicione seus scripts aqui -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
