@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  webserver:
+    image: nginx:latest
+    container_name: laravel_webserver
+    volumes:
+      - ./docker/nginx/app.conf:/etc/nginx/conf.d/default.conf
+      - ./Cadastro-Produtos/app:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: ./docker/php
+    container_name: laravel_php
+    volumes:
+      - ./Cadastro-Produtos/app:/var/www/html
+
+  postgres:
+    image: postgres:latest
+    container_name: laravel_postgres
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:latest
+    container_name: laravel_redis
+
+volumes:
+  pgdata:
